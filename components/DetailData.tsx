@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
     bottomText: {
         color: '#ffffff',
         fontSize: 18,
+        flexWrap: 'wrap',
+        width: 100,
+        textAlign: 'center',
     },
 });
 
