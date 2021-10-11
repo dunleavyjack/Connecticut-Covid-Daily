@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
 
@@ -12,7 +12,7 @@ const WeeklyChart: React.FC<IProps> = ({ labels, chartData }) => {
     const chartDataInt: number[] = chartData.map(Number);
 
     return (
-        <View>
+        <View style={styles.container}>
             <LineChart
                 data={{
                     labels: labels,
@@ -53,5 +53,11 @@ const WeeklyChart: React.FC<IProps> = ({ labels, chartData }) => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        width: '90%',
+    },
+});
 
 export default WeeklyChart;
