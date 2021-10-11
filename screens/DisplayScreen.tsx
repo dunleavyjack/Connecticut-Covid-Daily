@@ -87,39 +87,30 @@ const DisplayScreen: React.FC = () => {
     }, []);
 
     return (
-        <SafeAreaView style={styles.main}>
-            <ScrollView>
-                <View style={styles.container}>
-                    <LastUpdated lastUpdated={data.lastUpdated} />
-                    <PercentPositive
-                        percentPositive={data.percentPositive}
-                        percentDifference={data.percentDifference}
-                    />
-                    <WeeklyChart
-                        labels={data.weeklyLabels}
-                        chartData={data.weeklyPercentPositive}
-                    />
-                    <View style={styles.dataRow}>
-                        <DetailData data={data.newCases} label={'New Cases'} />
-                        <DetailData data={'33.5k'} label={'Tests'} />
-                    </View>
-                    <View style={styles.dataRow}>
-                        <DetailData data={data.probable} label={'Probable'} />
-                        <DetailData data={data.confirmed} label={'Confirmed'} />
-                    </View>
-                    <Footer />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <LastUpdated lastUpdated={data.lastUpdated} />
+            <PercentPositive
+                percentPositive={data.percentPositive}
+                percentDifference={data.percentDifference}
+            />
+            <WeeklyChart
+                labels={data.weeklyLabels}
+                chartData={data.weeklyPercentPositive}
+            />
+            <View style={styles.dataRow}>
+                <DetailData data={data.newCases} label={'New Cases'} />
+                <DetailData data={'33.5k'} label={'Tests'} />
+            </View>
+            <View style={styles.dataRow}>
+                <DetailData data={data.confirmed} label={'Confirmed Cases'} />
+                <DetailData data={data.probable} label={'Probable Cases'} />
+            </View>
+            <Footer />
+        </View>
     );
 };
 
-const colorScheme = Appearance.getColorScheme();
-
 const styles = StyleSheet.create({
-    main: {
-        backgroundColor: colorScheme === 'dark' ? 'black' : 'white',
-    },
     container: {
         height: '100%',
         display: 'flex',
