@@ -17,12 +17,10 @@ const DetailData: React.FC<IProps> = ({ data, label }) => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         height: 180,
-        width: '43%',
         backgroundColor: '#13233C',
         borderRadius: 20,
-        marginLeft: '1.5%',
-        marginRight: '1.5%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

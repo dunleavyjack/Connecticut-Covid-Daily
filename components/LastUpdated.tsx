@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 60,
+        marginTop: 30,
         marginBottom: 10,
         width: '90%',
         backgroundColor: '#ffa726',
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     image: {
-        width: 65,
-        height: 110,
-        bottom: 20,
+        width: 75,
+        height: 120,
+        bottom: 15,
     },
 });
 

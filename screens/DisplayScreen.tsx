@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-    View,
-    StyleSheet,
-    SafeAreaView,
-    ScrollView,
-    Appearance,
-} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import axios from 'axios';
 import {
     getLastWeek,
@@ -99,10 +93,12 @@ const DisplayScreen: React.FC = () => {
             />
             <View style={styles.dataRow}>
                 <DetailData data={data.newCases} label={'New Cases'} />
+                <View style={styles.spacer} />
                 <DetailData data={'33.5k'} label={'Tests'} />
             </View>
             <View style={styles.dataRow}>
                 <DetailData data={data.confirmed} label={'Confirmed Cases'} />
+                <View style={styles.spacer} />
                 <DetailData data={data.probable} label={'Probable Cases'} />
             </View>
             <Footer />
@@ -117,8 +113,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     dataRow: {
+        width: '90%',
         display: 'flex',
         flexDirection: 'row',
+        // gap: 10,
+    },
+    spacer: {
+        width: 10,
     },
 });
 
