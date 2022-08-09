@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import {
+    RefreshControl,
+    SafeAreaView,
+    ScrollView,
+    Appearance,
+    StyleSheet,
+} from 'react-native';
+import DisplayScreen from './screens/DisplayScreen';
+
+const colorScheme = Appearance.getColorScheme();
+
+const wait = (timeout: any) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [refreshing, setRefreshing] = useState(false);
+
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        wait(1500).then(() => setRefreshing(false));
+    }, []);
+
+    return (
+        <SafeAreaView style={styles.main}>
+            <ScrollView
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
+                    />
+                }
+            >
+                <DisplayScreen />
+            </ScrollView>
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    main: {
+        backgroundColor: colorScheme === 'dark' ? 'black' : 'white',
+    },
 });
